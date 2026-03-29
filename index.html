@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusForge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="dashboard">
+      <header class="hero">
+        <p class="pretitle">Personal Focus OS</p>
+        <p class="eyebrow">Deep Work Companion</p>
+        <h1>FocusForge</h1>
+        <p class="tagline">Build momentum one focused block at a time.</p>
+      </header>
+
+      <div class="dashboard-grid">
+        <section class="panel timer-panel" aria-label="Timer panel">
+          <div class="timer-head">
+            <h2>Focus Timer</h2>
+            <p id="modeBadge" class="mode-badge">Focus Mode</p>
+          </div>
+
+          <p class="subject-label">Current Subject</p>
+          <p id="activeSubject" class="active-subject">No subject selected</p>
+
+          <div id="timerOrb" class="timer-orb" aria-live="polite">
+            <p id="timer" class="timer-text">25:00</p>
+          </div>
+
+          <p id="focusStatus" class="focus-status">Ready to focus.</p>
+
+          <div class="button-row">
+            <button id="startBtn" class="btn btn-primary" type="button">Start</button>
+            <button id="pauseBtn" class="btn" type="button">Pause</button>
+            <button id="resetBtn" class="btn" type="button">Reset</button>
+          </div>
+
+          <div id="setupSection" class="setup-grid">
+            <h3>Set Focus Time</h3>
+            <div class="custom-time">
+              <input type="number" id="timeInput" placeholder="Minutes" min="1">
+              <button id="setTimeBtn" class="btn" type="button">Set</button>
+            </div>
+            <div class="quick-times">
+              <button data-minutes="25" class="btn quick-btn" type="button">25 min</button>
+              <button data-minutes="50" class="btn quick-btn" type="button">50 min</button>
+              <button data-minutes="90" class="btn quick-btn" type="button">90 min</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel subjects-panel" aria-label="Subjects panel">
+          <h2>Subjects</h2>
+          <div class="custom-time">
+            <input type="text" id="subjectInput" placeholder="Add a subject">
+            <button id="addSubjectBtn" class="btn" type="button">Add</button>
+          </div>
+          <ul id="subjectList" class="subject-list"></ul>
+        </section>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Edit Subject</h3>
+              <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="editSubjectInput" placeholder="Subject name">
+            </div>
+            <div class="modal-footer">
+              <button id="modalDeleteBtn" class="btn btn-danger" type="button">Delete</button>
+              <div class="modal-actions">
+                <button id="modalCancelBtn" class="btn" type="button">Cancel</button>
+                <button id="modalSaveBtn" class="btn btn-primary" type="button">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="panel stats-panel" aria-label="Stats panel">
+          <div class="stats-header">
+            <h2>Study Stats</h2>
+            <button id="resetAllBtn" class="btn btn-reset" title="Reset all data" type="button">⚙️</button>
+          </div>
+          <div class="stats-filters">
+            <button class="stats-filter-btn active" data-filter="all-time">All Time</button>
+            <button class="stats-filter-btn" data-filter="week">This Week</button>
+            <button class="stats-filter-btn" data-filter="today">Today</button>
+          </div>
+          <ul id="statsList" class="stats-list"></ul>
+        </section>
+
+        <!-- Reset Confirmation Modal -->
+        <div id="resetModal" class="modal">
+          <div class="modal-content modal-danger">
+            <div class="modal-header">
+              <h3>⚠️ Reset All Data</h3>
+              <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p class="reset-warning">This will permanently delete all subjects, sessions, and stats. This action <strong>cannot be undone</strong>.</p>
+              <p class="reset-confirm-text">Type <strong>RESET</strong> to confirm:</p>
+              <input type="text" id="resetConfirmInput" placeholder="Type RESET" autocomplete="off">
+            </div>
+            <div class="modal-footer">
+              <button id="resetCancelBtn" class="btn" type="button">Cancel</button>
+              <button id="resetConfirmBtn" class="btn btn-danger" type="button" disabled>Reset All Data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
