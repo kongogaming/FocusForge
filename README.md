@@ -18,7 +18,7 @@ Built with simplicity and performance in mind, FocusForge combines a clean UI wi
   View session stats and track your progress over time.
 
 * 💾 **Local Storage Support**
-  Your data is محفوظ locally — no login required.
+  Your data is stored locally — no login required.
 
 * 🎨 **Modern UI**
   Clean, responsive, and distraction-free design.
